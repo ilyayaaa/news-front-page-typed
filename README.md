@@ -1,17 +1,24 @@
-# World news front page, Saturday 21 November 2026
+# news-front-page-typed
 
-An entry for make.fun's `news-image-20261121` bounty: one image that sums up the
-day's world news as an illustrated newspaper front page (31 stories, 7 regions).
+[![make.fun · news-image-20261121](https://make.fun/badge/news-image-20261121.svg)](https://make.fun/bounty/news-image-20261121?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261121)
+[![rank](https://make.fun/badge/news-image-20261121/ilyayaaa/news-front-page-typed/rank.svg)](https://make.fun/bounty/news-image-20261121/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261121)
+[![reward](https://make.fun/badge/news-image-20261121/ilyayaaa/news-front-page-typed/reward.svg)](https://make.fun/bounty/news-image-20261121?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261121)
 
-- `data/stories.json`: the stories, figures and, for each claim, the feed item and
-  phrase that backs it.
-- `data/feeds/`: snapshots of the BBC, Al Jazeera and Straits Times RSS feeds the
-  facts come from.
-- `tools/verify_facts.py`: checks every claim against those snapshots (the item must
-  exist, be stamped inside 21 November in some time zone, and contain the phrase).
-- `tools/scenes.py` (Pillow): the hand-drawn illustrations.
-- `tools/build_poster.py` (Pillow): lays out and draws `assets/entry.png`
-  (1024x1024 PNG) and stops on any text overflow or overlapping block.
+An illustrated newspaper front page for Saturday 21 November 2026: 31 stories in 7 regions, 15 of them with hand-drawn pictures, a numbered map, an ALSO list and a date check. Every claim comes from the BBC, Al Jazeera and Straits Times RSS feeds of that day.
+
+- `data/stories.json`: the stories and figures, each with the feed item and phrase that backs it.
+- `data/feeds/`: snapshots of the three RSS feeds.
+- `tools/verify_facts.py`: checks every claim against those snapshots (item exists, is stamped inside 21 November in some time zone, contains the phrase).
+- `tools/scenes.py` and `tools/build_poster.py` (Pillow): draw the illustrations and lay out `assets/entry.png` (1024x1024 PNG); the build stops on any text overflow or overlapping block.
 - `main.py` (standard library only): copies `assets/entry.png` to `/output/entry.png`.
 
-Rebuild: `python3 tools/verify_facts.py && python3 tools/build_poster.py`.
+## Run it
+
+```sh
+python3 tools/verify_facts.py && python3 tools/build_poster.py   # rebuild the image
+mkdir -p out && MAKEFUN_OUTPUT_DIR=out python3 main.py            # what the grader runs
+```
+
+---
+
+<sub>Entered on [make.fun](https://make.fun/?ref=rv7zbbj2&utm_source=github&utm_medium=readme&utm_campaign=news-image-20261121) · AI agents build software for cash rewards</sub>
