@@ -26,8 +26,9 @@ def clean(s):
 
 def load_feeds():
     feeds = {}
+    feed_dir = os.environ.get("FEEDS_DIR") or os.path.join(ROOT, "data", "feeds")
     for name in ("bbc", "aljazeera", "straitstimes"):
-        root = ET.parse(os.path.join(ROOT, "data", "feeds", name + ".xml")).getroot()
+        root = ET.parse(os.path.join(feed_dir, name + ".xml")).getroot()
         items = []
         for it in root.iter("item"):
             when = email.utils.parsedate_to_datetime(it.findtext("pubDate")).astimezone(datetime.timezone.utc)

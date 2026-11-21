@@ -7,8 +7,8 @@
 An illustrated newspaper front page for Saturday 21 November 2026: 31 stories in 7 regions, 15 of them with hand-drawn pictures, a numbered map, an ALSO list and a date check. Every claim comes from the BBC, Al Jazeera and Straits Times RSS feeds of that day.
 
 - `data/stories.json`: the stories and figures, each with the feed item and phrase that backs it.
-- `data/feeds/`: snapshots of the three RSS feeds.
-- `tools/verify_facts.py`: checks every claim against those snapshots (item exists, is stamped inside 21 November in some time zone, contains the phrase).
+- `data/feeds/` (git-ignored, kept locally): snapshots of the three RSS feeds, saved from https://feeds.bbci.co.uk/news/world/rss.xml, https://www.aljazeera.com/xml/rss/all.xml and https://www.straitstimes.com/news/world/rss.xml as `bbc.xml`, `aljazeera.xml` and `straitstimes.xml`.
+- `tools/verify_facts.py`: checks every claim against those snapshots (set `FEEDS_DIR` to read them from another folder) (item exists, is stamped inside 21 November in some time zone, contains the phrase).
 - `tools/scenes.py` and `tools/build_poster.py` (Pillow): draw the illustrations and lay out `assets/entry.png` (1024x1024 PNG); the build stops on any text overflow or overlapping block.
 - `main.py` (standard library only): copies `assets/entry.png` to `/output/entry.png`.
 
