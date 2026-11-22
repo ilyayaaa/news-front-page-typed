@@ -244,7 +244,7 @@ def main():
     ax0 = mx1 + 10
     register("alsohead", ax0, by0, W - M, by0 + 16)
     d.rectangle([ax0, by0, W - M, by0 + 16], fill=RED)
-    d.text((ax0 + 6, by0 + 3), f"ALSO ON SATURDAY 21 NOVEMBER: {len(data['also'])} MORE STORIES OF THE DAY", font=font(COND_B, 10), fill=(255, 255, 255))
+    d.text((ax0 + 6, by0 + 3), f"ALSO ON SATURDAY 21 NOVEMBER ({len(data['also'])} MORE)", font=font(COND_B, 10), fill=(255, 255, 255))
     also = data["also"]
     colw = (W - M - ax0) // 2
     per = len(also) // 2
